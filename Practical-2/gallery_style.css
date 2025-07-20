@@ -1,0 +1,113 @@
+/* ======= GLOBAL ======= */
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #000000;
+  color: #fff;
+}
+
+header {
+
+  background: linear-gradient(to right,#13535e, #000000, #1b2958);
+  padding: 1rem 0;
+}
+.navbar {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+}
+/* ======= GALLERY SECTION ======= */
+.gallery {
+  max-width: 1000px;
+  margin: 100px auto;
+  text-align: center;
+  animation: floatIn 1s ease-out backwards;
+}
+
+.gallery h2 {
+  font-size: 2.5rem;
+  color: #2f18c5;
+}
+
+/* ======= GALLERY GRID ======= */
+.gallery-grid {
+  animation: floatIn 1.5s ease-out forwards;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* ======= GALLERY CARD ======= */
+.gallery-card {
+  background: rgba(36, 13, 136, 0.584);
+  padding: 1rem;
+  border-radius: 50px;
+  transform: translateY(40px);
+  animation: floatIn 1s ease-out forwards;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.gallery-card:hover {
+  transform: translateY(1px) scale(1.0);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+/* ======= IMAGE STYLING ======= */
+.gallery-card img {
+  width: 100%;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+}
+
+/* ======= CAPTION ======= */
+.gallery-card p {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 1rem;
+}
+
+/* ======= CTA BUTTON (optional) ======= */
+.cta {
+  display: inline-block;
+  padding: 10px 25px;
+  background: linear-gradient(to right, rgb(35, 79, 129), rgb(15, 6, 79));
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.cta:hover {
+  background: rgb(45, 100, 160);
+  transform: scale(1.05);
+}
+
+/* ======= FOOTER ======= */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #0a2641;
+  color: #fff;
+}
+
+/* ======= ANIMATIONS ======= */
+@keyframes floatIn {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
