@@ -1,0 +1,121 @@
+/* ======= GLOBAL ======= */
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #000;
+  color: #fff;
+}
+
+/* ======= HEADER ======= */
+header {
+
+  background: linear-gradient(to right,#13535e, #000000, #1b2958);
+  padding: 1rem 0;
+}
+.navbar {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+}
+.blog {
+  max-width: 1000px;
+  margin: 100px auto;
+  padding: 0 20px;
+  text-align: center;
+  animation: floatIn 1s ease-out forwards;
+}
+
+.blog h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #87cefa;
+}
+
+/* ======= BLOG GRID ======= */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* ======= BLOG CARD ======= */
+.blog-card {
+  background: rgba(34, 17, 111, 0.541);
+  padding: 1.5rem;
+  border-radius: 12px;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: cardFloat 1s ease-out forwards;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+/* ======= BLOG CARD CONTENT ======= */
+.blog-card h3 {
+  font-size: 1.4rem;
+  color: #6acdfb;
+  margin-bottom: 1rem;
+}
+
+.blog-card p {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 1rem;
+}
+
+/* ======= CTA BUTTON ======= */
+.cta {
+  display: inline-block;
+  padding: 10px 25px;
+  background: linear-gradient(to right, rgb(35, 79, 129), rgb(15, 6, 79));
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.cta:hover {
+  background: rgb(45, 100, 160);
+  transform: scale(1.05);
+}
+
+/* ======= FOOTER ======= */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #0a2641;
+  color: #fff;
+}
+
+/* ======= ANIMATIONS ======= */
+@keyframes floatIn {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardFloat {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
