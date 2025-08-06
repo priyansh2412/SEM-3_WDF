@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact – Priyansh</title>
+  <link rel="stylesheet" href="contact_style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="nav-brand">Myself</div>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <ul class="navbar" id="navbar">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="contact">
+      <h2>Let's Connect!</h2>
+      <form class="contact-form">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Message" rows="6" required></textarea>
+        <button type="submit" class="cta">Send Message</button>
+      </form>
+
+      <div class="contact-info">
+        <p>Email: <strong>priyanshsukhi24@gmail.com</strong></p>
+        <p>GitHub: <a href="https://github.com/priyansh2412/Ps24/">github.com/priyansh2412/Ps24</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Priyansh. All rights reserved.</p>
+  </footer>
+  <script>
+  function toggleMenu() {
+    document.getElementById("navbar").classList.toggle("show");
+  }
+</script>
+</body>
+</html>

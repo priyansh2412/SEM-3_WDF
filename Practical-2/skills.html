@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Skills – Priyansh</title>
+  <link rel="stylesheet" href="skills_style.css"/>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="nav-brand">Myself</div>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <ul class="navbar" id="navbar">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="skills">
+      <h2>My Technical Reaches</h2>
+      <div class="skill-grid">
+        <div class="skill-card">
+          <h3>👨‍💻 Programming Languages</h3>
+          <p>C++, JavaScript, HTML, CSS</p>
+        </div>
+        <div class="skill-card">
+          <h3>🧠 Concepts</h3>
+          <p>OOP principles, inheritance, polymorphism, operator overloading</p>
+        </div>
+        <div class="skill-card">
+          <h3>🕵️‍♂️ Networking Basics</h3>
+          <p>TCP/IP, cybersecurity foundations, simulation concepts</p>
+        </div>
+        <div class="skill-card">
+          <h3>🎯 Special Skills</h3>
+          <p>Manual sorting algorithms, advanced data traversal, CSS layout fixes</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Priyansh. All rights reserved.</p>
+  </footer>
+  <script>
+  function toggleMenu() {
+    document.getElementById("navbar").classList.toggle("show");
+  }
+</script>
+</body>
+</html>

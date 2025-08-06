@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects – Priyansh</title>
+  <link rel="stylesheet" href="projects_style.css"/>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="nav-brand">Myself</div>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <ul class="navbar" id="navbar">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="projects">
+      <h2>My Projects</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <h3>🛍 E-Commerce Store</h3>
+          <p>Designed a scalable storefront with dynamic cart logic and secure user authentication.</p>
+        </div>
+        <div class="project-card">
+          <h3>🔁 Custom Sorting Algorithm</h3>
+          <p>Implemented manual sort logic in C++ to simulate complexity without using built-ins.</p>
+        </div>
+        <div class="project-card">
+          <h3>🌐 Potfolio Website</h3>
+          <p>Built my Portfolio Website for communication with the world.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Priyansh. All rights reserved.</p>
+  </footer>
+  <script>
+  function toggleMenu() {
+    document.getElementById("navbar").classList.toggle("show");
+  }
+</script>
+</body>
+</html>

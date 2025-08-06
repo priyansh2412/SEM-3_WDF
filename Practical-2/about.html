@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Me – Priyansh</title>
+  <link rel="stylesheet" href="about_style.css"/>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="nav-brand">Myself</div>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <ul class="navbar" id="navbar">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="about">
+      <h2>About Me</h2>
+      <p>Hello! I’m Priyansh — a developer who finds beauty in logic and loves to explore how code speaks to creativity. My journey started with curiosity and grew into passion, especially in backend development, manual solutions, and the elegance of Java.</p>
+
+      <div class="about-grid">
+        <div class="about-box">
+          <h3>🌐 Vision</h3>
+          <p>Building scalable systems while embracing the fundamentals of design and architecture.</p>
+        </div>
+        <div class="about-box">
+          <h3>💡 Values</h3>
+          <p>Precision, persistence, and the pursuit of depth—whether in code or ideas.</p>
+        </div>
+        <div class="about-box">
+          <h3>🎧 Interests</h3>
+          <p>Mixing aesthetic lyricism with clean layouts—because creativity lives in the details.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Priyansh. All rights reserved.</p>
+  </footer>
+  <script>
+  function toggleMenu() {
+    document.getElementById("navbar").classList.toggle("show");
+  }
+</script>
+</body>
+</html>
