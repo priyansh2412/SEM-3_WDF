@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Registration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .form-container {
+      background: #fff;
+      padding: 2rem;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      width: 100%;
+      max-width: 400px;
+    }
+    input {
+      width: 100%;
+      padding: 0.7rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .error {
+      color: red;
+      font-size: 0.9em;
+    }
+    button {
+      background: #007BFF;
+      color: white;
+      padding: 0.8rem;
+      border: none;
+      width: 100%;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Register</h2>
+    <form id="registrationForm" novalidate>
+      <input type="text" id="username" placeholder="Username" required />
+      <div class="error" id="usernameError"></div>
+
+      <input type="email" id="email" placeholder="Email" required />
+      <div class="error" id="emailError"></div>
+
+      <input type="password" id="password" placeholder="Password" required minlength="6" />
+      <div class="error" id="passwordError"></div>
+
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" required />
+      <div class="error" id="confirmPasswordError"></div>
+
+      <button type="submit">Register</button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('registrationForm');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Clear previous errors
+      document.querySelectorAll('.error').forEach(el => el.textContent = '');
+
+      let isValid = true;
+
+      // Username validation
+      const username = document.getElementById('username').value.trim();
+      if (username === '') {
+        document.getElementById('usernameError').textContent = "Username is required.";
+        isValid = false;
+      }
+
+      // Email validation
+      const email = document.getElementById('email').value.trim();
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        document.getElementById('emailError').textContent = "Enter a valid email.";
+        isValid = false;
+      }
+
+      // Password validation
+      const password = document.getElementById('password').value;
+      if (password.length < 6) {
+        document.getElementById('passwordError').textContent = "Password must be at least 6 characters.";
+        isValid = false;
+      }
+
+      // Confirm password match
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      if (password !== confirmPassword) {
+        document.getElementById('confirmPasswordError').textContent = "Passwords do not match.";
+        isValid = false;
+      }
+
+      if (isValid) {
+        alert("Registration successful!");
+        form.reset();
+      }
+    });
+  </script>
+</body>
+</html>
