@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dynamic UI Portal</title>
+  <style>
+    :root {
+      --bg: #f9f9f9;
+      --text: #333;
+      --accent: #007bff;
+    }
+    body.dark-mode {
+      --bg: #1e1e1e;
+      --text: #f0f0f0;
+      --accent: #00bfff;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
+    }
+    header {
+      padding: 1rem;
+      background: var(--accent);
+      color: white;
+      text-align: center;
+    }
+    .notification {
+      background: #fffae6;
+      border-left: 5px solid orange;
+      padding: 1rem;
+      margin: 1rem;
+      position: relative;
+    }
+    .notification button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: orange;
+      color: white;
+      border: none;
+      padding: 0.3rem 0.6rem;
+      cursor: pointer;
+    }
+    .faq {
+      max-width: 600px;
+      margin: 2rem auto;
+    }
+    .faq-item {
+      border: 1px solid #ccc;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .faq-question {
+      background: var(--accent);
+      color: white;
+      padding: 1rem;
+      cursor: pointer;
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      background: #f0f0f0;
+      padding: 0 1rem;
+    }
+    .faq-answer.open {
+      max-height: 200px;
+      padding: 1rem;
+    }
+    .slider {
+      max-width: 600px;
+      margin: 2rem auto;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    .slide {
+      min-width: 100%;
+      height: 300px;
+      background-size: cover;
+      background-position: center;
+    }
+    .slider-controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+    .slider-controls button {
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+    .theme-toggle {
+      margin: 1rem auto;
+      text-align: center;
+    }
+    .theme-toggle button {
+      padding: 0.5rem 1rem;
+      background: var(--accent);
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Dynamic Portal UI</h1>
+  </header>
+
+  <div class="notification" id="notify">
+    <p>🔔 New feature added: Theme Switcher!</p>
+    <button onclick="dismissNotification()">Dismiss</button>
+  </div>
+
+  <section class="faq">
+    <div class="faq-item">
+      <div class="faq-question">What is this portal about?</div>
+      <div class="faq-answer">This portal showcases dynamic UI components using JavaScript.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">How do I switch themes?</div>
+      <div class="faq-answer">Click the "Toggle Theme" button below to switch between light and dark modes.</div>
+    </div>
+  </section>
+
+  <section class="slider">
+    <div class="slides" id="slides">
+      <div class="slide" style="background-image: url('https://picsum.photos/id/1015/600/300');"></div>
+      <div class="slide" style="background-image: url('https://picsum.photos/id/1016/600/300');"></div>
+      <div class="slide" style="background-image: url('https://picsum.photos/id/1018/600/300');"></div>
+    </div>
+    <div class="slider-controls">
+      <button onclick="prevSlide()">Prev</button>
+      <button onclick="nextSlide()">Next</button>
+    </div>
+  </section>
+
+  <div class="theme-toggle">
+    <button onclick="toggleTheme()">Toggle Theme</button>
+  </div>
+
+  <script>
+    document.querySelector('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const answer = q.nextElementSibling;
+        answer.classList.toggle('open');
+      });
+    });
+    function dismissNotification() {
+      document.getElementById('notify').style.display = 'none';
+    }
+    let currentSlide = 0;
+    const slides = document.getElementById('slides');
+    const totalSlides = slides.children.length;
+
+    function updateSlide() {
+      slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateSlide();
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateSlide();
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
+</body>
+</html>
