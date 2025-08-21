@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Events & Profiles</title>
+  <style>
+    body { font-family: Arial; margin: 2rem; background: #f4f4f4; }
+    h2 { color: #333; }
+    .card { background: white; padding: 1rem; margin: 1rem 0; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .pagination { margin-top: 1rem; }
+    .pagination button { margin: 0 5px; padding: 0.5rem 1rem; }
+  </style>
+</head>
+<body>
+  <h2>📅 Events</h2>
+  <div id="events"></div>
+
+  <h2>👨‍🎓 Student Profiles</h2>
+  <div id="profiles"></div>
+  <div class="pagination" id="pagination"></div>
+
+  <script>
+    const eventsJSON = `[
+      { "title": "Hackathon", "date": "2025-09-01" },
+      { "title": "AI Workshop", "date": "2025-09-10" },
+      { "title": "Design Sprint", "date": "2025-09-15" }
+    ]`;
+
+    const studentsJSON = `[
+      { "name": "Priyansh", "skills": ["CSS", "JavaScript"] },
+      { "name": "Aisha", "skills": ["Python", "ML"] },
+      { "name": "Ravi", "skills": ["C++", "DSA"] },
+      { "name": "Meera", "skills": ["React", "Node.js"] },
+      { "name": "Kunal", "skills": ["Java", "Spring"] },
+      { "name": "Sara", "skills": ["HTML", "UI/UX"] }
+    ]`;
+
+    const events = JSON.parse(eventsJSON);
+    const students = JSON.parse(studentsJSON);
+
+    function renderEvents(data) {
+      const container = document.getElementById('events');
+      container.innerHTML = '';
+      data.forEach(event => {
+        container.innerHTML += `
+          <div class="card">
+            <strong>${event.title}</strong><br>
+            📅 ${event.date}
+          </div>
+        `;
+      });
+    }
+
+    let currentPage = 1;
+    const profilesPerPage = 2;
+
+    function paginateProfiles(data, page) {
+      const start = (page - 1) * profilesPerPage;
+      return data.slice(start, start + profilesPerPage);
+    }
+
+    function renderProfiles(data) {
+      const container = document.getElementById('profiles');
+      container.innerHTML = '';
+      data.forEach(student => {
+        container.innerHTML += `
+          <div class="card">
+            <strong>${student.name}</strong><br>
+            🛠️ Skills: ${student.skills.join(', ')}
+          </div>
+        `;
+      });
+    }
+
+    function renderPagination(totalItems) {
+      const totalPages = Math.ceil(totalItems / profilesPerPage);
+      const pagination = document.getElementById('pagination');
+      pagination.innerHTML = '';
+      for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement('button');
+        btn.textContent = i;
+        btn.onclick = () => {
+          currentPage = i;
+          renderProfiles(paginateProfiles(students, currentPage));
+        };
+        pagination.appendChild(btn);
+      }
+    }
+
+    renderEvents(events);
+    renderProfiles(paginateProfiles(students, currentPage));
+    renderPagination(students.length);
+  </script>
+</body>
+</html>
